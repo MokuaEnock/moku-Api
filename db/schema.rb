@@ -26,6 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "project_id"
+    t.string "name"
+    t.string "email"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_messages_on_project_id"
@@ -39,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
   end
 
   create_table "projects", force: :cascade do |t|
+    t.integer "projecttype_id"
     t.string "name"
     t.string "short_description"
     t.string "description"
@@ -50,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
     t.string "field"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["projecttype_id"], name: "index_projects_on_projecttype_id"
   end
 
   create_table "projects_skills", id: false, force: :cascade do |t|
@@ -66,4 +71,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
   end
 
   add_foreign_key "messages", "projects"
+  add_foreign_key "projects", "projecttypes"
 end
