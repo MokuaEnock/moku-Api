@@ -4,13 +4,13 @@ class LanguagesController < ApplicationController
   end
 
   def create
-    lan = User.create(lan_params)
+    lan = Language.create(lan_params)
     render json: lan
   end
 
   private
 
   def lan_params
-    params.permit(:name, :decription)
+    params.permit(:name, :description)
   end
 end
