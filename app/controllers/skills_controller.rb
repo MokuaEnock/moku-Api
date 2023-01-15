@@ -10,7 +10,7 @@ class SkillsController < ApplicationController
 
   private
 
-  def skil_params
+  def skill_params
     params.permit(:name, :description)
   end
 end
