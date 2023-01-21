@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :roles
-  resources :experiences
+  resources :experiences, only: [:edit, :update, :show, :destory]
   resources :messages
   resources :projects
   resources :project_types
