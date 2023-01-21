@@ -50,3 +50,4 @@ end
 gem "ruby-lsp", "~> 0.3.7", :group => :development
 gem "rails-erd"
 gem 'ruby-graphviz'
+gem "fast_jsonapi"
