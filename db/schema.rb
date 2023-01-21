@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_21_071525) do
+  create_table "experiences", force: :cascade do |t|
+    t.integer "role_id"
+    t.string "title"
+    t.string "location"
+    t.string "company_name"
+    t.string "company_link"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_experiences_on_role_id"
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -21,8 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
   create_table "languages_projects", id: false, force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "language_id", null: false
-    t.index %w[project_id language_id],
-            name: "index_languages_projects_on_project_id_and_language_id"
+    t.index ["project_id", "language_id"], name: "index_languages_projects_on_project_id_and_language_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -61,8 +73,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
   create_table "projects_skills", id: false, force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "skill_id", null: false
-    t.index %w[project_id skill_id],
-            name: "index_projects_skills_on_project_id_and_skill_id"
+    t.index ["project_id", "skill_id"], name: "index_projects_skills_on_project_id_and_skill_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer "experience_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_roles_on_experience_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -72,6 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "experiences", "roles"
   add_foreign_key "messages", "projects"
   add_foreign_key "projects", "projecttypes"
+  add_foreign_key "roles", "experiences"
 end
