@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :roles
   resources :experiences
-  resources :migrations
   resources :messages
   resources :projects
   resources :project_types
