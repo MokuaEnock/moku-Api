@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :migrations
   resources :messages
   resources :projects
   resources :project_types

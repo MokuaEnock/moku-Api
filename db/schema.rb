@@ -21,7 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
   create_table "languages_projects", id: false, force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "language_id", null: false
-    t.index ["project_id", "language_id"], name: "index_languages_projects_on_project_id_and_language_id"
+    t.index %w[project_id language_id],
+            name: "index_languages_projects_on_project_id_and_language_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -60,7 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_033657) do
   create_table "projects_skills", id: false, force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "skill_id", null: false
-    t.index ["project_id", "skill_id"], name: "index_projects_skills_on_project_id_and_skill_id"
+    t.index %w[project_id skill_id],
+            name: "index_projects_skills_on_project_id_and_skill_id"
   end
 
   create_table "skills", force: :cascade do |t|
