@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.permit(
+      :projecttype_id,
       :name,
       :description,
       :short_description,
