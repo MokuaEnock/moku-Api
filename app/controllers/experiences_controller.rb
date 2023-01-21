@@ -3,6 +3,11 @@ class ExperiencesController < ApplicationController
     render json: Experience.all
   end
 
+  def create
+    exp = Experience.create(expr_params)
+    render json: exp
+  end
+
   def show
   end
 
