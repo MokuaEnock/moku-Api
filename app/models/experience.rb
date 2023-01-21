@@ -1,5 +1,6 @@
 class Experience < ApplicationRecord
   def create
+    render json: Experience.all
   end
 
   def show
