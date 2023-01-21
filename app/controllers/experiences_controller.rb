@@ -9,6 +9,9 @@ class ExperiencesController < ApplicationController
   end
 
   def show
+    @experience = Experience.find(params[:id])
+    @roles = @experience.roles
+    render json: @experience, include: "roles"
   end
 
   private
