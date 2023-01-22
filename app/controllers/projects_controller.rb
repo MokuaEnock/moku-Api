@@ -13,6 +13,9 @@ class ProjectsController < ApplicationController
     render json: project
   end
 
+  def destroy
+  end
+
   private
 
   def project_params
