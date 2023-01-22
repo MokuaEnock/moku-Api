@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_21_071525) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_22_102206) do
+  create_table "Projects_Tags", id: false, force: :cascade do |t|
+    t.integer "Project_id", null: false
+    t.integer "Tag_id", null: false
+    t.index ["Project_id"], name: "index_Projects_Tags_on_project_id"
+    t.index ["Tag_id"], name: "index_Projects_Tags_on_tag_id"
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.integer "role_id"
     t.string "title"
@@ -78,6 +85,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_071525) do
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
