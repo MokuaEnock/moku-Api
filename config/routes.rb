@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :skill_certifications
   resources :tags
   resources :roles
   resources :experiences

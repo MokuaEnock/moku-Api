@@ -1,0 +1,2 @@
+class SkillCertification < ApplicationRecord
+end
