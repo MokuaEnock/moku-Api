@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_22_102206) do
     t.string "location"
     t.string "company_name"
     t.string "company_link"
+    t.string "company_link_image"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
