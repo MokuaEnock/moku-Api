@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_22_102206) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_29_160709) do
   create_table "Projects_Tags", id: false, force: :cascade do |t|
     t.integer "Project_id", null: false
     t.integer "Tag_id", null: false
     t.index ["Project_id"], name: "index_Projects_Tags_on_project_id"
     t.index ["Tag_id"], name: "index_Projects_Tags_on_tag_id"
+  end
+
+  create_table "certifications", force: :cascade do |t|
+    t.string "name"
+    t.string "institution"
+    t.string "certificate_link"
+    t.string "issue_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -81,6 +90,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_22_102206) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["experience_id"], name: "index_roles_on_experience_id"
+  end
+
+  create_table "skill_certifications", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "skills", force: :cascade do |t|
