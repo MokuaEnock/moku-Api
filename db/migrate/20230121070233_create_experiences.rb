@@ -6,6 +6,7 @@ class CreateExperiences < ActiveRecord::Migration[7.0]
       t.string :location
       t.string :company_name
       t.string :company_link
+      t.string :company_link_image
       t.date :start_date
       t.date :end_date
 
