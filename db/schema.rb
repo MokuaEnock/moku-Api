@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_29_160709) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_29_170343) do
   create_table "Projects_Tags", id: false, force: :cascade do |t|
     t.integer "Project_id", null: false
     t.integer "Tag_id", null: false
@@ -23,6 +23,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_160709) do
     t.string "institution"
     t.string "certificate_link"
     t.string "issue_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "education_skills", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.string "institution"
+    t.date "start"
+    t.date "end"
+    t.string "name"
+    t.string "major"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
