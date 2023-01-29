@@ -10,6 +10,7 @@ class CertificationsController < ApplicationController
 
   def create
     cert = Certification.create(cert_params)
+    render json: cert
   end
 
   private
