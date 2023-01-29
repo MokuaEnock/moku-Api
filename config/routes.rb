@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :educations
   resources :certifications
   resources :skill_certifications
   resources :tags
