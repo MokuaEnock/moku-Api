@@ -44,7 +44,17 @@ experiences =
     ]
   )
 
-  roles = Role.create{
-    
-  }
+roles =
+  Role.create do
+    [
+      {
+        name: "Full time",
+        description: "Worked for eight hours per day or more."
+      },
+      {
+        name: "Part time",
+        description: "Worked for a maximum of 5 hours per day"
+      },
+    ]
+  end
 puts "Seeding done!!!!!"
