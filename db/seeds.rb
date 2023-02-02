@@ -37,10 +37,14 @@ experiences =
         location: "Nairobi",
         company_name: "Apt Learner",
         company_link: "apt learner link",
-        company_link_image: "neura logo",
+        company_link_image: "apt learner logo",
         start_date: "01/01/2022",
         end_date: "01/12/2022"
       }
     ]
   )
+
+  roles = Role.create{
+    
+  }
 puts "Seeding done!!!!!"
